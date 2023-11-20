@@ -1,5 +1,3 @@
-// app/components/ProductCard.jsx
-
 const ProductCard = ({productName, productPrice, productImage, shortDescription}) => {
   return (
     <aside 
