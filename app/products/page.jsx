@@ -1,3 +1,4 @@
+
 import {ListPlaceHolder} from "@/app/products/components/ListPlaceholder"
 import { PlaceHolderCard } from "@/components/cards/PlaceholderCard"
  
@@ -14,7 +15,7 @@ async function Videos() {
     const videos = await getVideos();
      
     if(videos){
-      const {details} = {  ...contents}
+      const {details} = {  ...videos};
       console.log(videos)
     }
     return (
