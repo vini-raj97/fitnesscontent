@@ -1,60 +1,30 @@
-import { ListPlaceHolder } from '@/app/products/components/ListPlaceholder';
-import { PlaceHolderCard } from '@/components/cards/PlaceholderCard';
-import Link from "next/link";
+// app/products/page.js
 
-async function getVideos() {
-  const res = await fetch('https://fintnesstrainer-default-rtdb.firebaseio.com/fitnesscontent.json');
-  return await res.json();
-}
+import { getProducts } from '@/lib/firebase/getProducts';
+import { MultipleCard } from '@/components/cards/Card';
 
-async function Videos() {
+async function ProductsPage({ children }) {
   try {
-    const videos = await getVideos();
+    const products = await getProducts();
 
-    if (videos) {
-      const details = Object.values(videos);
-
-      console.log(details);
-
+    if (products && Array.isArray(products)) {
       return (
-        <>
-          <header className="bg-white mt-12">
-            {<h1>Fitness training</h1>}
-          </header>
-
-          <main>
-            {details.map((video) => (
-              <div key={video.uid}>
-                <h2>{video.videoName}</h2>
-                <p>{video.shortDescription}</p>
-                <p>{video.videoPrice}</p>
-
-                {/* Use only the Link component without an <a> child */}
-                <Link href={`/products/${video.uid}`}>
-                  {/* <a className='text-blue-600 font-semibold'>
-                    View Details
-                  </a> */}
-                </Link>
-              </div>
-            ))}
-          </main>
-        </>
+        <div className="grid grid-cols-3 gap-4">
+          {products.map((product) => (
+            <MultipleCard key={product.uid} {...product} />
+          ))}
+        </div>
       );
+    } else {
+      // Handle the case where products is null or not an array
+      console.error('Error: Products is null or not an array');
+      return null;
     }
   } catch (error) {
-    console.error('Error fetching videos:', error);
-    return (
-      <>
-        <header className="bg-white mt-12">
-          {/* Header content */}
-        </header>
-
-        <main>
-          <p>Error fetching videos. Please try again later.</p>
-        </main>
-      </>
-    );
+    // Handle other errors
+    console.error('Error fetching products:', error);
+    return null;
   }
 }
 
-export default Videos;
+export default ProductsPage;

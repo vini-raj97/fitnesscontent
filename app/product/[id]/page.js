@@ -1,44 +1,60 @@
-import { getProducts } from "@/lib/firebase/getProducts";
+// import { getProduct } from '@/lib/firebase/getProduct';
 
-async function getProductById(id) {
-    try {
-        const payload = await getProducts();
-        const products = Object.values(payload);
-        const singleProduct = products.find((product) => product.uid == id);
-        return singleProduct;
-    } catch (error) {
-        console.error('Error fetching product:', error);
-        throw error; // Rethrow the error to handle it in the calling code
-    }
-}
+// // Function to fetch a single product based on the provided ID
+// async function getProductData(id) {
+//     const payload = await getProduct();
+//     const products = Object.values(payload);
+//     const singleProduct = products.find(product => product.uid == id);
+//     return singleProduct;
+// }
 
-async function ProductPage({ params }) {
-    const id = params.id;
+// // Single Product Page Component
+// async function ProductPage({ product }) {
+//     // If the product is not found, you can handle this case accordingly
+//     if (!product) {
+//         return (
+//             <>
+//                 <header>
+//                     {<h1></h1> }
+//                 </header>
+//                 <main>
+//                     <p>Product not found.</p>
+//                 </main>
+//             </>
+//         );
+//     }
 
-    try {
-        const productData = await getProductById(id);
+//     const { uid, productName, productImage, shortDescription, productPrice } = product;
 
-        return (
-            <>
-                <main className="min-h-screen py-24">
-                    {/* Render UI for single product using productData */}
-                    <h1>{productData.videoName}</h1>
-                    <p>{productData.shortDescription}</p>
-                    <p>{productData.videoPrice}</p>
-                </main>
-            </>
-        );
-    } catch (error) {
-        // Handle error gracefully, show an error message or fallback content
-        console.error('Error fetching product:', error);
-        return (
-            <>
-                <main className="min-h-screen py-24">
-                    <p>Error fetching product. Please try again later.</p>
-                </main>
-            </>
-        );
-    }
-}
+//     return (
+//         <>
+//             <header>
+//                 <h1>{productName}</h1>
+//             </header>
 
-export default ProductPage;
+//             <main className="min-h-screen py-24">
+//                 {/* Display product details */}
+//                 <div>
+//                     <img src={productImage} alt={productName} />
+//                     <p>{shortDescription}</p>
+//                     <p>{productPrice}</p>
+//                     {/* Add other product details as needed */}
+//                 </div>
+//             </main>
+//         </>
+//     );
+// }
+
+// // Fetch the product data before rendering the page
+// export async function getServerSideProps({ params }) {
+//     const { id } = params;
+//     const product = await getProductData(id);
+
+//     return {
+//         props: {
+//             product,
+//         },
+//     };
+// }
+
+// export default ProductPage;
