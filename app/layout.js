@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
               Home
             </a>
             <span className="mx-4 text-white">|</span>
-            <a className="text-white" href="/products/videos">
+            <a className="text-white" href="/products">
               Videos
             </a>
           </div>
