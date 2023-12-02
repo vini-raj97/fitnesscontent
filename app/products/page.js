@@ -1,5 +1,6 @@
 import { ListPlaceHolder } from '@/app/products/components/ListPlaceholder';
 import { PlaceHolderCard } from '@/components/cards/PlaceholderCard';
+import Link from "next/link";
 
 async function getVideos() {
   const res = await fetch('https://fintnesstrainer-default-rtdb.firebaseio.com/fitnesscontent.json');
@@ -27,6 +28,13 @@ async function Videos() {
                 <h2>{video.videoName}</h2>
                 <p>{video.shortDescription}</p>
                 <p>{video.videoPrice}</p>
+
+                {/* Use only the Link component without an <a> child */}
+                <Link href={`/products/${video.uid}`}>
+                  {/* <a className='text-blue-600 font-semibold'>
+                    View Details
+                  </a> */}
+                </Link>
               </div>
             ))}
           </main>
@@ -35,7 +43,6 @@ async function Videos() {
     }
   } catch (error) {
     console.error('Error fetching videos:', error);
-    // Handle error gracefully, show an error message or fallback content
     return (
       <>
         <header className="bg-white mt-12">
