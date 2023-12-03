@@ -2,30 +2,24 @@ import Link from "next/link";
 
 function NavBar({ children }) {
   return (
-    <nav className="py-4 px-4 pb-2 shadow-md bg-blue-50 justify-between flex flex-row">
-      <Link className="logo" href="/">
-        <img src="/images/logos/fitness_logo.png" alt="Fitness Logo" />
-      </Link>
-
-      <ul className="flex justify-between gap-x-8 items-center">
+    <nav className="bg-gray-800 p-4">
+      <ul className="container mx-auto flex align-left items-center">
         <li>
-          <Link className="text-rose-600 font-medium flex flex-row" href="/">
-            <figure className="flex items-center text-red-500 gap-1">
-              <figcaption className="text-sm">Home</figcaption>
-            </figure>
+          <Link className="text-white font-medium mx-2" href="/">
+            Home
           </Link>
         </li>
 
         <li>
-          <Link className="text-blue-600 font-medium" href="/products">
+          <Link className="text-white font-medium mx-2" href="/products">
             Videos
           </Link>
         </li>
 
         <li>
           <Link
-            className="text-blue-600 font-medium"
-            href="https://github.com/your-github-repository-link"
+            className="text-white font-medium"
+            href="https://github.com/vini-raj97/fitnesscontent.git"
           >
             GitHub
           </Link>

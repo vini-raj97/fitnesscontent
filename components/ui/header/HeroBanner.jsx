@@ -13,7 +13,4 @@ function HeroBanner ( {title, tagline , thislink , linkname , bclass}){
  
     )
  }
-
-
-
  export {HeroBanner}

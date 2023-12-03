@@ -1,15 +1,26 @@
-import { ProductCard } from '@/components/cards/SingleProductCard';
+import { NavBar } from '@/components/ui/navigation/NavBar';
+import { HeroBanner } from '@/components/ui/header/HeroBanner';
+import Link from 'next/link';
 
 export default function Home() {
   return (
     <>
-      <main className="flex min-h-screen flex-col items-center justify-between p-24">
-        <ProductCard
-          productName="Cardio Workout"
-          productPrice="5.99"
-          productImage="https://example.com/fitness-video-5.jpg"
-          shortDescription="Build strength with this comprehensive training program on cardio workout"
-        />
+      <header className="justify-between">
+        <NavBar />
+      </header>
+
+      <main className="flex min-h-screen flex-col font-serif items-center">
+        <div
+          className="hero-image items-center p-7 flex mb-5 shadow-2xl"
+          style={{ backgroundImage: "url('/images/home-page-background.jpg')" }}
+        >
+          <HeroBanner
+            bclass={"text-white bg-black p-2 rounded-md text-slate-600 text-xs"}
+            title={"Build strength with this comprehensive training program"}
+            thislink={"/products"}
+            linkname={"view contents"}
+          />
+        </div>
       </main>
     </>
   );
