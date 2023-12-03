@@ -1,5 +1,5 @@
 import { getProducts } from '@/lib/firebase/getProducts';
-import { MultipleCard } from '@/components/cards/Card';
+import { MultipleCard } from '@/components/cards/MultipleCard';
 import { NavBar } from '@/components/ui/navigation/NavBar';
 
 async function ProductsPage({ children }) {

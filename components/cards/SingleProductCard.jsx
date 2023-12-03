@@ -1,23 +1,30 @@
-const ProductCard = ({ productName, productPrice, productImage, shortDescription }) => {
+const ProductCard = ({ videoName, videoPrice, videoImage, shortDescription }) => {
   return (
-    <aside className="overflow-clip rounded-lg max-w-[260px] bg-gray-100 shadow-md p-4">
-      <img
-        className="mb-2 w-full h-40 object-cover rounded"
-        src={productImage}
-        alt={productName}
-      />
-      <div className="px-3 pt-3">
-        <h2 className="mb-1 text-xl text-gray-800 font-semibold">{productName}</h2>
-        <h3 className="mb-1 text-lg text-gray-700 font-medium">${productPrice}</h3>
-        <p className="mb-3 text-sm text-gray-600">{shortDescription}</p>
+    <div className="max-w-md mx-auto bg-white rounded-xl overflow-hidden shadow-md md:max-w-2xl mt-8">
+      <div className="md:flex">
+        <div className="md:flex-shrink-0">
+          <img
+            className="h-48 w-full md:h-full md:w-48"
+            src={videoImage}
+            alt={videoName}
+          />
+        </div>
+        <div className="p-8">
+          <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">
+            {videoName}
+          </div>
+          <p className="mt-2 text-gray-500">{shortDescription}</p>
+          <div className="mt-4">
+            <span className="text-gray-900 text-lg font-bold">${videoPrice}</span>
+          </div>
+          <div className="mt-6">
+            <button className="bg-blue-500 text-white py-2 px-4 rounded-md font-bold text-sm hover:bg-blue-600">
+              Start Now
+            </button>
+          </div>
+        </div>
       </div>
-
-      <footer className="flex flex-col gap-y-4 mt-4">
-        <button className="py-2.5 bg-blue-500 rounded-md font-bold text-white text-sm hover:bg-blue-600">
-          Buy Now
-        </button>
-      </footer>
-    </aside>
+    </div>
   );
 };
 
