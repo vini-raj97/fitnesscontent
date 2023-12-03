@@ -23,7 +23,7 @@ function MultipleCard({ videoImage, shortDescription, videoPrice, videoName, uid
         </div>
       </div>
 
-      <div className="bg-blue-500 text-white rounded-md font-bold text-sm items-end text-center flex justify-center hover:bg-blue-600">
+      <div className="bg-blue-500 text-white rounded-md font-bold py-2 px-4 text-sm items-end text-center flex justify-center hover:bg-blue-600">
         <Link href={`/product/${uid}`}>
             See More
         </Link>
