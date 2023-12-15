@@ -1,6 +1,6 @@
 import { getProducts } from '@/lib/firebase/getProducts';
 import { ProductCard } from '@/components/cards/SingleProductCard'
-import { NavBar } from "@/components/ui/navigation/NavBar"
+import { NavBar } from '@/components/ui/navigation/NavBar'
 
 async function getProduct(id) {
     const payload = await getProducts();

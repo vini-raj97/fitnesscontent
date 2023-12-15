@@ -1,4 +1,5 @@
-const ProductCard = ({ videoName, videoPrice, videoImage, shortDescription }) => {
+import {BuyNow} from '@/components/cards/BuyNowForm'
+const ProductCard = ({ videoName, videoPrice, videoImage, shortDescription, priceId }) => {
   return (
     <div className="max-w-md mx-auto bg-white rounded-xl overflow-hidden shadow-md md:max-w-2xl mt-8">
       <div className="md:flex">
@@ -18,9 +19,9 @@ const ProductCard = ({ videoName, videoPrice, videoImage, shortDescription }) =>
             <span className="text-gray-900 text-lg font-bold">${videoPrice}</span>
           </div>
           <div className="mt-6">
-            <button className="bg-blue-500 text-white py-2 px-4 rounded-md font-bold text-sm hover:bg-blue-600">
-              Start Now
-            </button>
+                      <div className="mt-6">
+            <BuyNow priceId={priceId} />
+          </div>
           </div>
         </div>
       </div>
