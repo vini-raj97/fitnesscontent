@@ -10,10 +10,12 @@ async function ProductsPage({ children }) {
       return (
         <>
           <NavBar />
-          <div className="grid grid-cols-3 gap-4">
-            {products.map((product) => (
-              <MultipleCard key={product.uid} {...product} />
-            ))}
+          <div className="container mx-auto max-w-7xl p-4">
+            <div className="grid grid-cols-3 gap-4">
+              {products.map((product) => (
+                <MultipleCard key={product.uid} {...product} />
+              ))}
+            </div>
           </div>
         </>
       );

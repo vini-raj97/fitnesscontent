@@ -1,3 +1,5 @@
+import Link from 'next/link';
+ 
  export default function Success ( {children}){
     return (
          
@@ -9,7 +11,11 @@
            <h1 className="bg-lime-400 rounded-lg text-sm  mb-5 w-fit mx-auto  px-4 py-1 text-green-800 font-medium"> Transaction Successful</h1> 
            <p className="px-4  text-center ">We have sent an confirmation email to <span className="text-fuchsia-700 font-medium block">client@email.com</span> 
             </p>
-     
+            <p className="text-lime-500 text-lg font-medium block underline">
+          <Link href="/products">
+            Return to the store?
+          </Link>
+        </p>
 
            </div>
 
