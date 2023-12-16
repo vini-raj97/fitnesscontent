@@ -2,19 +2,28 @@ import Link from 'next/link';
 
 export default function Cancel({ children }) {
   return (
-    <header className="max-w-lg mx-auto items-center mt-28">
-      <div className="text-center">
-        <h1 className="bg-rose-500 rounded-lg text-sm mb-5 w-fit mx-auto px-4 py-1 text-red-50 font-medium">
+    <div className="bg-gray-100 min-h-screen flex items-center justify-center">
+      <div className="max-w-lg p-8 bg-white rounded-lg shadow-md border border-gray-200">
+        <h1 className="text-3xl font-extrabold text-red-600 mb-4">
           Transaction Canceled
         </h1>
-        <p className="px-4 mb-10 text-center">The payment was declined.</p>
+        <p className="text-gray-700 mb-6">
+          Unfortunately, the payment was declined. Please review your payment details and try again.
+        </p>
 
-        <p className="text-lime-500 text-lg font-medium block underline">
-          <Link href="/products">
-            Return to the store?
+        <p className="text-green-600 text-lg font-semibold hover:underline mb-4">
+          <Link className="text-green-600 hover:underline" href="/products">
+            Return to the Store
           </Link>
         </p>
+
+        <p className="text-gray-500 text-sm">
+          Need assistance? Contact our support team at{' '}
+          <a href="mailto:support@example.com" className="text-blue-500 hover:underline">
+            support@example.com
+          </a>
+        </p>
       </div>
-    </header>
+    </div>
   );
 }
